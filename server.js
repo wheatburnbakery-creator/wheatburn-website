@@ -39,6 +39,12 @@ const server = http.createServer(async (
 
   try {
     httpUtil.applySecurityHeaders(res);
+
+    if (url.pathname === '/1230c254-c6a9-418d-b181-88714e340080.txt') {
+      res.writeHead(200, { 'Content-Type': 'text/plain' });
+      res.end('Probely');
+      return;
+    }
     if (botfilter.handle(req, res)) return;
 
     if (url.pathname === '/api' || url.pathname.startsWith('/api/')) {
