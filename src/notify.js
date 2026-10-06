@@ -19,6 +19,7 @@ const config = require('./config');
 
 /** Provider field names — adjust to match your gateway's payload. */
 const PAYLOAD_KEYS = { to: 'to', message: 'message', sender: 'sender', channel: 'channel' };
+const { redactSecrets } = require('./redact');
 /**
  * @param {NotifyChannel} channel
  * @param {string} to
@@ -29,7 +30,7 @@ function outbox(channel, to, message, meta = {}) {
     new Date().toISOString(),
     channel.toUpperCase().padEnd(8),
     String(to).padEnd(18),
-    JSON.stringify(message),
+    JSON.stringify(config.isProduction ? redactSecrets(message) : message),
     Object.keys(meta).length ? JSON.stringify(meta) : ''
   ]
     .filter(Boolean)
