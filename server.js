@@ -13,6 +13,7 @@ const config = require('./src/config');
 const store = require('./src/store');
 const httpUtil = require('./src/http');
 const routes = require('./src/routes');
+const ratelimit = require('./src/ratelimit');
 const botfilter = require('./src/botfilter');
 
 const NOT_FOUND_PAGE = `<!DOCTYPE html>
@@ -45,6 +46,8 @@ const server = http.createServer(async (
       res.end('Probely');
       return;
     }
+    if (ratelimit.handle(req, res, url)) return;
+
     if (botfilter.handle(req, res)) return;
 
     if (url.pathname === '/api' || url.pathname.startsWith('/api/')) {
