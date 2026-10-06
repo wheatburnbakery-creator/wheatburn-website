@@ -1,6 +1,7 @@
 'use strict';
 const WINDOW_MS = 60 * 1000;
 const LIMITS = [
+  { name: 'auth', test: (p) => p.startsWith('/api/auth/') || p === '/api/account/password', max: 10 },
   { name: 'api', test: (p) => p === '/api' || p.startsWith('/api/'), max: 60 },
   { name: 'all', test: () => true, max: 300 },
 ];
