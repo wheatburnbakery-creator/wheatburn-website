@@ -1,7 +1,15 @@
 'use strict';
-const CACHE = 'wheatburn-assets-v1';
+const CACHE = 'wheatburn-assets-v2';
+const PRECACHE = ['/offline.html', '/assets/css/shop.css'];
 
-self.addEventListener('install', () => self.skipWaiting());
+self.addEventListener('install', (event) => {
+  event.waitUntil(
+    caches.open(CACHE)
+      .then((c) => c.addAll(PRECACHE))
+      .catch(() => {})
+      .then(() => self.skipWaiting())
+  );
+});
 
 self.addEventListener('activate', (event) => {
   event.waitUntil(
@@ -16,7 +24,12 @@ self.addEventListener('fetch', (event) => {
   if (req.method !== 'GET') return;
   const url = new URL(req.url);
   if (url.origin !== self.location.origin) return;
-  // Only static files are cached. Pages and /api always go to the network.
+  // Pages always come from the network; only the offline page is a fallback.
+  if (req.mode === 'navigate') {
+    event.respondWith(fetch(req).catch(() => caches.match('/offline.html')));
+    return;
+  }
+  // Static files only. /api and anything personal is never cached.
   if (!url.pathname.startsWith('/assets/')) return;
   event.respondWith(
     fetch(req)
