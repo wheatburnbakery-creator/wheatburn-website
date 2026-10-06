@@ -1,0 +1,16 @@
+{
+  "id": "/",
+  "name": "Wheatburn Bakery",
+  "short_name": "Wheatburn",
+  "description": "Order bread, mandazi and cakes from Wheatburn Bakery in Kigali.",
+  "start_url": "/?source=pwa",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#fdfaf5",
+  "theme_color": "#b4521e",
+  "icons": [
+    { "src": "/assets/icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "/assets/icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "/assets/icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}
