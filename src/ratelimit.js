@@ -15,7 +15,16 @@ function clientIp(req) {
   return req.socket.remoteAddress || 'unknown';
 }
 
+function hasScanToken(req) {
+  const want = process.env.SCAN_TOKEN;
+  const got = req.headers["x-scan-token"];
+  if (!want || want.length < 32 || typeof got !== "string") return false;
+  const a = Buffer.from(got), b = Buffer.from(want);
+  return a.length === b.length && require("crypto").timingSafeEqual(a, b);
+}
+
 function handle(req, res, url) {
+  if (hasScanToken(req)) return false;
   const ip = clientIp(req);
   const now = Date.now();
   if (hits.size > 50000) hits.clear();
