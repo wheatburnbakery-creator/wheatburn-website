@@ -82,10 +82,12 @@ function applySecurityHeaders(/** @type {Res} */res) {
     'Content-Security-Policy',
     [
       "default-src 'self'",
-      "img-src 'self' data:",
-      "style-src 'self'",
-      "script-src 'self'",
-      "connect-src 'self'",
+      "img-src 'self' data: https://*.zohopublic.com https://*.zoho.com https://*.zohostatic.com",
+      "style-src 'self' 'unsafe-inline' https://*.zohopublic.com https://*.zoho.com https://*.zohostatic.com",
+      "script-src 'self' https://*.zohopublic.com https://*.zoho.com https://*.zohostatic.com",
+      "connect-src 'self' https://*.zohopublic.com https://*.zoho.com https://*.zohostatic.com wss://*.zohopublic.com wss://*.zoho.com",
+    "frame-src https://*.zohopublic.com https://*.zoho.com",
+    "font-src 'self' data: https://*.zohostatic.com https://*.zohopublic.com",
       "form-action 'self'",
       "base-uri 'self'",
       "frame-ancestors 'none'"
