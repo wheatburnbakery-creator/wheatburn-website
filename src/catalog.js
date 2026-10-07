@@ -77,6 +77,8 @@ function serialize(/** @type {any} */product, { channel = 'retail', now = new Da
     unit: product.unit,
     image: product.image,
     short: product.short,
+    descriptionEn: product.description_en || null,
+    descriptionFr: product.description_fr || null,
     long: product.long,
     rwandanInputs: product.rwandanInputs,
     badge: product.badge,

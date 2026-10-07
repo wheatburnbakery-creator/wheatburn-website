@@ -485,7 +485,7 @@ WB.ui = (function () {
     const body = el('div', { class: 'product-body' }, [
       el('h3', { text: product.name }),
       el('p', { class: 'gloss', text: product.gloss }),
-      el('p', { class: 'desc', text: product.short }),
+      el('p', { class: 'desc', text: ((document.documentElement.lang||"").toLowerCase().startsWith("fr")&&product.descriptionFr)||product.descriptionEn||product.short }),
       el('p', { class: 'inputs' }, [
         el('strong', { text: 'Rwandan inputs: ' }),
         document.createTextNode(product.rwandanInputs)
