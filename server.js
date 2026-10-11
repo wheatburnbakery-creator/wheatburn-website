@@ -15,6 +15,7 @@ const httpUtil = require('./src/http');
 const routes = require('./src/routes');
 const ratelimit = require('./src/ratelimit');
 const botfilter = require('./src/botfilter');
+const csrf = require('./src/csrf');
 
 const NOT_FOUND_PAGE = `<!DOCTYPE html>
 <html lang="en"><head><meta charset="utf-8">
@@ -46,6 +47,7 @@ const server = http.createServer(async (
       res.end('Probely');
       return;
     }
+    if (csrf.handle(req, res)) return;
     if (ratelimit.handle(req, res, url)) return;
 
     if (botfilter.handle(req, res)) return;
