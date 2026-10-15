@@ -97,6 +97,21 @@ WB.ui = (function () {
     });
 
     cartButton.addEventListener('click', () => openCart());
+
+    // Mobile only: move Sign in + Basket into the hamburger menu
+    const actions = host.querySelector('.header-actions');
+    const wrapEl = host.querySelector('.wrap');
+    function placeActions() {
+      const mobile = getComputedStyle(toggle).display !== 'none';
+      if (mobile && actions.parentNode !== nav) nav.append(actions);
+      else if (!mobile && actions.parentNode !== wrapEl) wrapEl.append(actions);
+    }
+    placeActions();
+    window.addEventListener('resize', placeActions);
+    cartButton.addEventListener('click', () => {
+      nav.classList.remove('open');
+      toggle.setAttribute('aria-expanded', 'false');
+    });
   }
 
   /* --------------------------------------------------------------- footer */
