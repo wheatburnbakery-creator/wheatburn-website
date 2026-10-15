@@ -863,3 +863,9 @@ td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; }
     border-radius: var(--radius-pill, 999px);
   }
 }
+
+/* Sign in + Basket inside the mobile menu */
+.site-nav .header-actions{display:flex;flex-direction:column;gap:.6rem;padding:1rem 0 .5rem;margin-top:.5rem;border-top:1px solid rgba(0,0,0,.12)}
+.site-nav .header-actions .icon-btn{display:flex;justify-content:center;align-items:center;gap:.5rem;width:100%}
+.site-nav .header-actions .label,
+.site-nav .header-actions .cart-label{display:inline !important;position:static !important;width:auto !important;height:auto !important;clip:auto !important;overflow:visible !important}
