@@ -5,6 +5,7 @@
   "cutoffHour": 14,
   "cutoffNotice": "Orders after 2 PM ship the next day.",
   "deliveryDays": [
+    0,
     1,
     2,
     3,

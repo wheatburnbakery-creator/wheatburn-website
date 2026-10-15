@@ -40,8 +40,8 @@ module.exports = {
     whatsapp: process.env.STORE_WHATSAPP || '250788000000', // PLACEHOLDER, digits only (wa.me)
     email: process.env.STORE_EMAIL || 'orders@wheatburn.rw', // PLACEHOLDER
     address: process.env.STORE_ADDRESS || 'KG 11 Ave, Kicukiro, Kigali, Rwanda', // PLACEHOLDER
-    hours: 'Mon–Sat, 07:00–18:00',
-    closedDays: 'Sunday',
+    hours: process.env.STORE_HOURS || 'Every day, 07:00–24:00',
+    closedDays: process.env.STORE_CLOSED_DAYS || '',
     // Social links — replace the '#' placeholders with real profiles.
     social: {
       instagram: '#',

@@ -140,7 +140,7 @@ WB.ui = (function () {
           column('Visit', [
             b.address,
             el('span', { text: `Counter: ${b.hours}` }),
-            el('span', { text: `Closed ${b.closedDays}` }),
+            el('span', { text: (b.closedDays ? `Closed ${b.closedDays}` : 'Open every day') }),
             el('a', { href: `tel:${b.phone.replace(/\s/g, '')}`, text: b.phone }),
             el('a', { href: `mailto:${b.email}`, text: b.email })
           ]),

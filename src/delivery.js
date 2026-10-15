@@ -92,7 +92,7 @@ const DAY_NAMES = [
  */
 function estimateDispatch(now = new Date(), { isPickup = false, leadTimeHours = 0 } = {}) {
   const cutoff = DATA.cutoffHour ?? config.order.sameDayCutoffHour;
-  const closedDays = ['Sunday'];
+  const closedDays = (process.env.STORE_CLOSED_DAYS || '').split(',').map((d) => d.trim()).filter(Boolean);
   const dispatch = new Date(now.getTime());
 
   if (isPickup) {

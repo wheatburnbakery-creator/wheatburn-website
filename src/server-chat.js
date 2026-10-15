@@ -115,7 +115,7 @@ function systemPrompt() {
     `Name: ${brand.name}`,
     `Promise: ${brand.promise}`,
     `Address: ${brand.address}`,
-    `Hours: ${brand.hours}, closed ${brand.closedDays}`,
+    `Hours: ${brand.hours}, ${brand.closedDays ? 'closed ' + brand.closedDays : 'open every day'}`,
     `Phone: ${brand.phone}`,
     `WhatsApp: ${brand.whatsapp}`,
     `Email: ${brand.email}`,

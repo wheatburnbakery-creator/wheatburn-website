@@ -28,13 +28,14 @@ WB.onReady(async () => {
   emailLink.textContent = brand.email;
 
   qs('#address-display').textContent = brand.address;
-  qs('#hours-display').textContent = `Mon–Sat, 07:00–18:00 · closed ${brand.closedDays}`;
+  qs('#hours-display').textContent = brand.hours + (brand.closedDays ? ' · closed ' + brand.closedDays : '');
   qs('#map-link').setAttribute(
     'href',
     `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(brand.address)}`
   );
   qs('#hours-note').textContent =
-    `The counter is open ${brand.hours}. The overnight bake runs Monday to Saturday and wholesale leaves before 06:30. We are closed on ${brand.closedDays}.`;
+    `The counter is open ${brand.hours}. The overnight bake runs every day and wholesale leaves before 06:30.` +
+      (brand.closedDays ? ` We are closed on ${brand.closedDays}.` : '');
 
   /* ---------------------------------------------------------- message form */
 
