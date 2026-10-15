@@ -20,6 +20,7 @@ const config = require('./config');
 /** Provider field names — adjust to match your gateway's payload. */
 const PAYLOAD_KEYS = { to: 'to', message: 'message', sender: 'sender', channel: 'channel' };
 const { redactSecrets } = require('./redact');
+const { providerFetch } = require('./atsms');
 /**
  * @param {NotifyChannel} channel
  * @param {string} to
@@ -61,7 +62,7 @@ async function send(channel, to, message, meta = {}) {
   }
 
   try {
-    const response = await fetch(config.notify.providerUrl, {
+    const response = await providerFetch(config.notify.providerUrl, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
