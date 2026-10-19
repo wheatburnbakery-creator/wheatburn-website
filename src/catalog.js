@@ -39,6 +39,10 @@ function orderable(product, now = new Date()) {
   if (product.available === false) {
     return { ok: false, reason: 'This line is off the shelf right now.' };
   }
+  const left = require('./stock').left(product.id);
+  if (left !== null && left <= 0) {
+    return { ok: false, reason: 'Sold out for today.' };
+  }
   const season = product.availability;
   if (season && season.type === 'seasonal' && Array.isArray(season.months)) {
     const month = now.getMonth() + 1;
