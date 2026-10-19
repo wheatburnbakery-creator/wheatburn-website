@@ -46,7 +46,7 @@
     main.appendChild(s);
   }
 
-  function run() { addWhatsApp(); addMap(); }
+  function run() { addMap(); }
   document.addEventListener('DOMContentLoaded', run);
   var t;
   new MutationObserver(function () { clearTimeout(t); t = setTimeout(run, 150); })
