@@ -913,3 +913,10 @@ td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; }
     padding:.55rem 1.2rem;border-radius:999px;
   }
 }
+
+/* Mobile header like McDonald's: lines | logo | Order */
+@media (max-width:860px){
+  .site-header .nav-toggle{order:0 !important;margin:0 .6rem 0 -8px !important}
+  .site-header .wordmark{order:1 !important}
+  .site-header .mobile-order{order:2 !important;margin-left:auto !important}
+}
