@@ -879,3 +879,24 @@ td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; }
 .site-header .nav-toggle:hover,
 .site-header .nav-toggle:focus,
 .site-header .nav-toggle:active{background:transparent !important;border:0 !important;box-shadow:none !important;border-radius:0 !important}
+
+/* Hamburger: three dark lines, no circle, top-right */
+.site-header .nav-toggle,
+.site-header .nav-toggle:hover,
+.site-header .nav-toggle:focus,
+.site-header .nav-toggle:active{
+  width:44px !important;height:44px !important;padding:0 !important;
+  border:0 !important;border-radius:0 !important;box-shadow:none !important;
+  font-size:0 !important;color:transparent !important;
+  background-color:transparent !important;
+  background-image:
+    linear-gradient(#1f1812,#1f1812),
+    linear-gradient(#1f1812,#1f1812),
+    linear-gradient(#1f1812,#1f1812) !important;
+  background-repeat:no-repeat !important;
+  background-size:26px 3px !important;
+  background-position:center 12px,center 20px,center 28px !important;
+  margin-left:auto !important;order:2;
+}
+.site-header .nav-toggle::before,
+.site-header .nav-toggle::after{content:none !important;display:none !important}
