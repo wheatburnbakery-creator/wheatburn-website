@@ -97,6 +97,7 @@ WB.ui = (function () {
     });
 
     cartButton.addEventListener('click', () => openCart());
+    host.querySelector('.wrap').append(el('a', { class: 'mobile-order', href: '/order', text: 'Order' }));
 
     // Mobile only: move Sign in + Basket into the hamburger menu
     const actions = host.querySelector('.header-actions');

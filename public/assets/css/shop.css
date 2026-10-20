@@ -900,3 +900,16 @@ td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; }
 }
 .site-header .nav-toggle::before,
 .site-header .nav-toggle::after{content:none !important;display:none !important}
+
+/* Hamburger next to the wordmark, Order button at top-right (mobile) */
+.site-header .wrap{display:flex;align-items:center}
+.site-header .wordmark{order:0}
+.site-header .nav-toggle{order:1 !important;margin-left:.5rem !important}
+.site-header .mobile-order{display:none}
+@media (max-width:860px){
+  .site-header .mobile-order{
+    display:inline-flex;align-items:center;order:3;margin-left:auto;
+    background:#b4521e;color:#fff;font-weight:600;text-decoration:none;
+    padding:.55rem 1.2rem;border-radius:999px;
+  }
+}
