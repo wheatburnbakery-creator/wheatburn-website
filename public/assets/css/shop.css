@@ -873,3 +873,9 @@ td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; }
 /* Hamburger in the top-right corner */
 .site-header .wrap{display:flex;align-items:center;justify-content:space-between}
 .site-header .nav-toggle{margin-left:auto;order:2}
+
+/* Hamburger: no circle, just the three lines */
+.site-header .nav-toggle,
+.site-header .nav-toggle:hover,
+.site-header .nav-toggle:focus,
+.site-header .nav-toggle:active{background:transparent !important;border:0 !important;box-shadow:none !important;border-radius:0 !important}
