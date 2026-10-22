@@ -920,3 +920,22 @@ td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; }
   .site-header .wordmark{order:1 !important}
   .site-header .mobile-order{order:2 !important;margin-left:auto !important}
 }
+
+/* wb-transparent-header */
+body:has(.hero) .site-header { position: absolute !important; top: 0; left: 0; right: 0; z-index: 30; }
+body:has(.hero) .site-header:not(.nav-open) {
+  background: linear-gradient(to bottom, rgba(20,12,8,.78), rgba(20,12,8,0)) !important;
+  border-bottom: 0 !important;
+  box-shadow: none !important;
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+}
+body:has(.hero) .site-header:not(.nav-open) .wordmark { color: #fff !important; }
+body:has(.hero) .site-header:not(.nav-open) .wordmark .sub { color: #f2c9a7 !important; }
+body:has(.hero) .site-header:not(.nav-open) .site-nav a:not(.btn),
+body:has(.hero) .site-header:not(.nav-open) .site-nav a:not(.btn):hover,
+body:has(.hero) .site-header:not(.nav-open) .site-nav a:not(.btn).active { color: #fff !important; }
+body:has(.hero) .site-header:not(.nav-open) .nav-toggle {
+  background: transparent !important;
+  filter: brightness(0) invert(1);
+}
