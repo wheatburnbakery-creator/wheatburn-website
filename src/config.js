@@ -64,7 +64,7 @@ module.exports = {
     otpMaxPerWindow: 3,
 
     resetTtlMs: 15 * 60 * 1000,
-    loginMaxAttempts: 10,
+    loginMaxAttempts: Number(process.env.LOGIN_MAX_ATTEMPTS || 5),
     loginWindowMs: 15 * 60 * 1000,
 
     minPasswordLength: 8,
