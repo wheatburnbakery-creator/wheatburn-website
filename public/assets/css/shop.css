@@ -952,3 +952,20 @@ html body:has(.hero) .site-header:not(.nav-open) :is(.nav-toggle,[aria-expanded]
 html body:has(.hero) .site-header:not(.nav-open) :is(.nav-toggle,[aria-expanded],[aria-controls],[class*="toggle"],[class*="burger"],[class*="menu-btn"]) * {
   color: #2a1a10 !important; fill: #2a1a10 !important; stroke: #2a1a10 !important; text-shadow: none !important;
 }
+
+/* wb-header-toggle v4 */
+html body:has(.hero) .site-header:not(.nav-open) :is(.nav-toggle,[aria-expanded],[aria-controls],[class*="toggle"],[class*="burger"],[class*="menu-btn"]) {
+  order: 99 !important;
+  width: 46px !important; height: 46px !important; min-width: 46px !important;
+  padding: 0 !important; margin-left: 10px !important;
+  font-size: 0 !important; line-height: 0 !important; color: transparent !important;
+  overflow: hidden !important;
+  border: 1px solid #fdfaf5 !important; border-radius: 10px !important;
+  background:
+    linear-gradient(#2a1a10,#2a1a10) 50% 14px / 22px 3px no-repeat,
+    linear-gradient(#2a1a10,#2a1a10) 50% 21px / 22px 3px no-repeat,
+    linear-gradient(#2a1a10,#2a1a10) 50% 28px / 22px 3px no-repeat,
+    #fdfaf5 !important;
+}
+html body:has(.hero) .site-header:not(.nav-open) :is(.nav-toggle,[aria-expanded],[aria-controls],[class*="toggle"],[class*="burger"],[class*="menu-btn"]) > * { display: none !important; }
+html body:has(.hero) .site-header:not(.nav-open) :is(.nav-toggle,[aria-expanded],[aria-controls],[class*="toggle"],[class*="burger"],[class*="menu-btn"])::before, html body:has(.hero) .site-header:not(.nav-open) :is(.nav-toggle,[aria-expanded],[aria-controls],[class*="toggle"],[class*="burger"],[class*="menu-btn"])::after { content: none !important; display: none !important; }
