@@ -864,21 +864,25 @@ td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; }
   }
 }
 
-/* wb-transparent-header */
+/* wb-transparent-header v2 */
 body:has(.hero) .site-header { position: absolute !important; top: 0; left: 0; right: 0; z-index: 30; }
 body:has(.hero) .site-header:not(.nav-open) {
-  background: linear-gradient(to bottom, rgba(20,12,8,.78), rgba(20,12,8,0)) !important;
+  background: linear-gradient(to bottom, rgba(14,8,5,.92) 0%, rgba(14,8,5,.7) 60%, rgba(14,8,5,0) 100%) !important;
+  padding-bottom: 26px !important;
   border-bottom: 0 !important;
   box-shadow: none !important;
   -webkit-backdrop-filter: none !important;
   backdrop-filter: none !important;
 }
-body:has(.hero) .site-header:not(.nav-open) .wordmark { color: #fff !important; }
-body:has(.hero) .site-header:not(.nav-open) .wordmark .sub { color: #f2c9a7 !important; }
-body:has(.hero) .site-header:not(.nav-open) .site-nav a:not(.btn),
-body:has(.hero) .site-header:not(.nav-open) .site-nav a:not(.btn):hover,
-body:has(.hero) .site-header:not(.nav-open) .site-nav a:not(.btn).active { color: #fff !important; }
-body:has(.hero) .site-header:not(.nav-open) .nav-toggle {
-  background: transparent !important;
-  filter: brightness(0) invert(1);
+body:has(.hero) .site-header:not(.nav-open) a:not(.btn),
+body:has(.hero) .site-header:not(.nav-open) .wordmark,
+body:has(.hero) .site-header:not(.nav-open) .wordmark * {
+  color: #fff !important; fill: #fff !important; text-shadow: 0 1px 8px rgba(0,0,0,.65);
 }
+body:has(.hero) .site-header:not(.nav-open) .wordmark .sub { color: #f6d2b3 !important; }
+body:has(.hero) .site-header:not(.nav-open) .wordmark img { filter: brightness(0) invert(1); }
+body:has(.hero) .site-header:not(.nav-open) .nav-toggle {
+  background: rgba(0,0,0,.25) !important; color: #fff !important; border-color: rgba(255,255,255,.7) !important;
+}
+body:has(.hero) .site-header:not(.nav-open) .nav-toggle * { color: #fff !important; fill: #fff !important; stroke: #fff !important; }
+body:has(.hero) .site-header:not(.nav-open) .nav-toggle span { background: #fff !important; }
